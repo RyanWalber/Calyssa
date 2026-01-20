@@ -414,10 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67934ed1ff5d6f448abb50257e59071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 10
+  velocidade: 8
   forcaPulo: 10
   verificadorChao: {fileID: 279484709}
-  raioVerificacao: 0.2
+  raioVerificacao: 1.1
   camadaChao:
     serializedVersion: 2
     m_Bits: 64
@@ -485,7 +485,7 @@ MonoBehaviour:
   CameraDistance: 10
   DeadZoneDepth: 0
   Composition:
-    ScreenPosition: {x: 0, y: 0}
+    ScreenPosition: {x: 0, y: 0.3}
     DeadZone:
       Enabled: 0
       Size: {x: 0.2, y: 0.2}
@@ -553,7 +553,7 @@ Transform:
   m_GameObject: {fileID: 584683359}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.67, y: -5.37, z: -10}
+  m_LocalPosition: {x: -10.67, y: -1.1699996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -625,7 +625,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 112.52003, y: 8.162769}
+  m_Size: {x: 115.508, y: 8.162769}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -640,7 +640,7 @@ Transform:
   m_GameObject: {fileID: 973193172}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70.5204, y: -0.7, z: 0}
+  m_LocalPosition: {x: 68.2591, y: -0.7, z: 0}
   m_LocalScale: {x: 1.5136318, y: 1.9398192, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -734,7 +734,7 @@ Transform:
   m_GameObject: {fileID: 1262374131}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -36.31711}
+  m_LocalPosition: {x: -0, y: 14.275325, z: -36.31711}
   m_LocalScale: {x: -0.18997063, y: 0.38234654, z: 2.1848373}
   m_ConstrainProportionsScale: 0
   m_Children: []
