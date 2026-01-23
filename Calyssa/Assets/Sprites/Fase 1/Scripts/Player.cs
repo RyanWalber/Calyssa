@@ -1,69 +1,80 @@
 using UnityEngine;
+// Não vamos usar o 'using DragonBones;' aqui para evitar o erro de importação por enquanto
 
 public class Player : MonoBehaviour
 {
-    [Header("Configurações de Movimento")]
+    [Header("Configurações")]
     public float velocidade = 5f;
     public float forcaPulo = 10f;
 
-    [Header("Verificação de Chão")]
-    public Transform verificadorChao; // Um objeto vazio nos pés do personagem
+    [Header("DragonBones - Arraste o objeto 'Andando' aqui")]
+    public UnityEngine.Transform objetoDaAnimacao; // Arraste o objeto 'Andando' para cá
+    public string nomeAnimacaoAndar = "animtion0"; // Vi esse nome no seu print!
+    public string nomeAnimacaoParado = "idle"; // Verifique se o nome é esse mesmo
+
+    [Header("Chão")]
+    public Transform verificadorChao;
     public float raioVerificacao = 0.2f;
-    public LayerMask camadaChao; // O que é considerado chão
+    public LayerMask camadaChao;
 
     private Rigidbody2D rb;
-    private float inputHorizontal;
-    private bool estaNoChao;
-    private bool olhandoDireita = true;
+    private float inputH;
+    private bool noChao;
+
+    // Variável interna para guardar o componente do DragonBones
+    private DragonBones.UnityArmatureComponent armature;
 
     void Start()
     {
-        // Pega a referência do Rigidbody 2D automaticamente
         rb = GetComponent<Rigidbody2D>();
+
+        // Tenta achar o componente dentro do objeto que você arrastou
+        if (objetoDaAnimacao != null)
+        {
+            armature = objetoDaAnimacao.GetComponent<DragonBones.UnityArmatureComponent>();
+        }
     }
 
     void Update()
     {
-        // 1. Recebe o Input (Teclas A/D ou Setas)
-        inputHorizontal = Input.GetAxisRaw("Horizontal");
+        inputH = Input.GetAxisRaw("Horizontal");
 
-        // 2. Verifica o Pulo (Tecla Espaço)
-        if (Input.GetButtonDown("Jump") && estaNoChao)
+        // Pulo
+        if (Input.GetButtonDown("Jump") && noChao)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, forcaPulo);
         }
 
-        // 3. Vira o personagem
-        VirarPersonagem();
+        // Virar o personagem (Flip)
+        if (inputH != 0)
+        {
+            // Vira o PAI (Aster) inteiro
+            transform.localScale = new Vector3(inputH > 0 ? 1 : -1, 1, 1);
+        }
+
+        ControlarAnimacao();
     }
 
     void FixedUpdate()
     {
-        // 4. Aplica a física de movimento
-        rb.linearVelocity = new Vector2(inputHorizontal * velocidade, rb.linearVelocity.y);
-
-        // 5. Verifica se está tocando no chão
-        estaNoChao = Physics2D.OverlapCircle(verificadorChao.position, raioVerificacao, camadaChao);
+        rb.linearVelocity = new Vector2(inputH * velocidade, rb.linearVelocity.y);
+        noChao = Physics2D.OverlapCircle(verificadorChao.position, raioVerificacao, camadaChao);
     }
 
-    void VirarPersonagem()
+    void ControlarAnimacao()
     {
-        if ((inputHorizontal > 0 && !olhandoDireita) || (inputHorizontal < 0 && olhandoDireita))
+        if (armature == null) return; // Se não achou a animação, não faz nada
+
+        if (inputH != 0 && noChao)
         {
-            olhandoDireita = !olhandoDireita;
-            Vector3 escala = transform.localScale;
-            escala.x *= -1; // Inverte o sprite horizontalmente
-            transform.localScale = escala;
+            // Se o nome da animação atual for diferente de "animtion0", toca ela
+            if (armature.animation.lastAnimationName != nomeAnimacaoAndar)
+                armature.animation.Play(nomeAnimacaoAndar);
         }
-    }
-
-    // Desenha o círculo de verificação no editor para ajudar a visualizar
-    void OnDrawGizmosSelected()
-    {
-        if (verificadorChao != null)
+        else if (noChao)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(verificadorChao.position, raioVerificacao);
+            if (armature.animation.lastAnimationName != nomeAnimacaoParado)
+                armature.animation.Play(nomeAnimacaoParado);
         }
     }
 }

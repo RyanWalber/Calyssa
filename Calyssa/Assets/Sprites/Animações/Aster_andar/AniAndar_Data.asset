@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64e5b0e436d4bed9780211ae245f7b, type: 3}
+  m_Name: AniAndar_Data
+  m_EditorClassIdentifier: 
+  dataName: AniAndar
+  dragonBonesJSON: {fileID: 4900000, guid: b23abfa06217e47479132e1c88538915, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 4956fd5a17333ab469cbcf8969159bd1, type: 3}
+    texture: {fileID: 2800000, guid: a9f30fb57cd80e44292327ad5506646c, type: 3}
+    material: {fileID: 2100000, guid: f9de5bd989b135c4999cbe3d7455f496, type: 2}
+    uiMaterial: {fileID: 0}
