@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c1ad69b680f704b42b84e806790d49f9
+guid: d15d56e42326674478de0d412c2da68a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5429287974753484429
-    second: path2_0
+      213: -5712762022835330015
+    second: Armature_animtion0_07_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: path2_0
+      name: Armature_animtion0_07_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 581
-        height: 308
+        width: 800
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 371c4814a5b47a4b0800000000000000
-      internalID: -5429287974753484429
+      spriteID: 124ee8e253138b0b0800000000000000
+      internalID: -5712762022835330015
       vertices: []
       indices: 
       edges: []
