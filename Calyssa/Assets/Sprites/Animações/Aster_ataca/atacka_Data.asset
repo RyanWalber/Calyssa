@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64e5b0e436d4bed9780211ae245f7b, type: 3}
+  m_Name: atacka_Data
+  m_EditorClassIdentifier: 
+  dataName: atacka
+  dragonBonesJSON: {fileID: 4900000, guid: fd1f6b8a489da004d80438ad37cb6786, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 2b55d495dcc989f44850b3990b9f1825, type: 3}
+    texture: {fileID: 2800000, guid: 1496f7a785278ca4f9763ea5f1faeb2e, type: 3}
+    material: {fileID: 2100000, guid: 87ab7c7242a62644f8535d61ea86bcbd, type: 2}
+    uiMaterial: {fileID: 0}

@@ -410,7 +410,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      puloa_tex_0: 6427575062395291152
+      puloa_tex_1: 1880699786292708079
+      puloa_tex_10: 8071590338266724597
+      puloa_tex_2: -1990654712852766176
+      puloa_tex_3: -7355943214240196880
+      puloa_tex_4: 6660471604548148424
+      puloa_tex_5: 162620784952796567
+      puloa_tex_6: 1613121997941114268
+      puloa_tex_7: 4148263942870070657
+      puloa_tex_8: -8839366385784036885
+      puloa_tex_9: 4937934003456156943
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

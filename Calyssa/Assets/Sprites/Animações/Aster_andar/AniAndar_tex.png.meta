@@ -410,7 +410,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AniAndar_tex_0: 2194278690220531628
+      AniAndar_tex_1: -7245651970459679488
+      AniAndar_tex_10: -2171992224146299170
+      AniAndar_tex_2: 3723264084471309449
+      AniAndar_tex_3: -4181199153457640407
+      AniAndar_tex_4: 4140484190995253498
+      AniAndar_tex_5: -6394792432938621162
+      AniAndar_tex_6: 3644406651679369798
+      AniAndar_tex_7: 8752534398712998990
+      AniAndar_tex_8: 9023616021698188101
+      AniAndar_tex_9: -9026125755222672901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
