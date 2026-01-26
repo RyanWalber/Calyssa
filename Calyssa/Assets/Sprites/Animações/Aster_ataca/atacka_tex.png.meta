@@ -163,9 +163,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 349
-        width: 459
-        height: 675
+        y: 700
+        width: 916
+        height: 1348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: atacka_tex_1
       rect:
         serializedVersion: 2
-        x: 780
-        y: 801
-        width: 237
-        height: 223
+        x: 1558
+        y: 1604
+        width: 472
+        height: 444
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: atacka_tex_2
       rect:
         serializedVersion: 2
-        x: 780
-        y: 486
-        width: 165
-        height: 315
+        x: 1558
+        y: 976
+        width: 328
+        height: 628
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: atacka_tex_3
       rect:
         serializedVersion: 2
-        x: 945
-        y: 574
-        width: 60
-        height: 227
+        x: 1886
+        y: 1152
+        width: 118
+        height: 452
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,10 +250,10 @@ TextureImporter:
       name: atacka_tex_4
       rect:
         serializedVersion: 2
-        x: 945
-        y: 543
-        width: 45
-        height: 31
+        x: 1886
+        y: 1092
+        width: 88
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: atacka_tex_5
       rect:
         serializedVersion: 2
-        x: 945
-        y: 518
-        width: 31
-        height: 25
+        x: 1886
+        y: 1044
+        width: 60
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,9 +295,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 780
-        height: 333
+        y: 37
+        width: 1557
+        height: 663
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,10 +316,10 @@ TextureImporter:
       name: atacka_tex_7
       rect:
         serializedVersion: 2
-        x: 780
-        y: 316
-        width: 101
-        height: 170
+        x: 1558
+        y: 638
+        width: 200
+        height: 338
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,10 +338,10 @@ TextureImporter:
       name: atacka_tex_8
       rect:
         serializedVersion: 2
-        x: 881
-        y: 315
-        width: 100
-        height: 171
+        x: 1758
+        y: 636
+        width: 198
+        height: 340
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: atacka_tex_9
       rect:
         serializedVersion: 2
-        x: 780
-        y: 220
-        width: 165
-        height: 95
+        x: 1558
+        y: 448
+        width: 328
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,10 +382,10 @@ TextureImporter:
       name: atacka_tex_10
       rect:
         serializedVersion: 2
-        x: 780
-        y: 123
-        width: 60
-        height: 97
+        x: 1558
+        y: 256
+        width: 118
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,10 +404,10 @@ TextureImporter:
       name: atacka_tex_11
       rect:
         serializedVersion: 2
-        x: 945
-        y: 218
-        width: 60
-        height: 97
+        x: 1886
+        y: 444
+        width: 118
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -435,19 +435,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      atacka_tex_0: -7688187182221508265
-      atacka_tex_1: 6995070389138318280
-      atacka_tex_10: -2306319240979043874
-      atacka_tex_11: -908743990833413282
-      atacka_tex_2: 4657087260621376106
-      atacka_tex_3: -7539890482849411922
-      atacka_tex_4: 1442801731117705775
-      atacka_tex_5: 2623827301025490108
-      atacka_tex_6: -5274837144210105139
-      atacka_tex_7: -2180969812256629946
-      atacka_tex_8: -2968220623828626633
-      atacka_tex_9: -2124255681440381915
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

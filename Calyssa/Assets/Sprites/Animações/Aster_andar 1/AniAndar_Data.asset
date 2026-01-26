@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AniAndar_Data
   m_EditorClassIdentifier: 
   dataName: AniAndar
-  dragonBonesJSON: {fileID: 4900000, guid: b23abfa06217e47479132e1c88538915, type: 3}
+  dragonBonesJSON: {fileID: 4900000, guid: b8c67ad955ac6dc42988a894be92be66, type: 3}
   textureAtlas:
-  - textureAtlasJSON: {fileID: 4900000, guid: 4956fd5a17333ab469cbcf8969159bd1, type: 3}
-    texture: {fileID: 2800000, guid: a9f30fb57cd80e44292327ad5506646c, type: 3}
-    material: {fileID: 2100000, guid: f9de5bd989b135c4999cbe3d7455f496, type: 2}
+  - textureAtlasJSON: {fileID: 4900000, guid: ebc9882558748d34d88cc3a26c679e06, type: 3}
+    texture: {fileID: 2800000, guid: 3ac70b2ce4aa6d1438a3fa46da0ff284, type: 3}
+    material: {fileID: 2100000, guid: 4c6faf04c98fc4048806be336fa1a9ce, type: 2}
     uiMaterial: {fileID: 0}
