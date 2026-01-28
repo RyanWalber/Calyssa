@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     [Header("Configurações de Movimento")]
     public float velocidade = 5f;
     public float forcaPulo = 12f;
+    public int pulosExtrasMax = 1; // Quantidade de pulos extras (1 = Pulo Duplo)
 
     [Header("Objetos de Animação (Arraste da Hierarchy)")]
     public GameObject objetoOcioso;
@@ -21,46 +22,72 @@ public class Player : MonoBehaviour
     private float inputH;
     private bool estaNoChao;
     private bool estaAtacando;
-    private float tempoAtaque = 0.5f; // Ajuste conforme a duração da sua animação
+    private float tempoAtaque = 0.5f; 
     private float cronometroAtaque;
+    
+    private int pulosRestantes; // Contador de pulos
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        pulosRestantes = pulosExtrasMax; // Inicializa os pulos
     }
 
     void Update()
     {
+        // Reseta o contador de pulos quando encosta no chão
+        if (estaNoChao)
+        {
+            pulosRestantes = pulosExtrasMax;
+        }
+
         if (estaAtacando)
         {
             cronometroAtaque -= Time.deltaTime;
             if (cronometroAtaque <= 0) estaAtacando = false;
-            
-            // Durante o ataque, o personagem não se move ou pula
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
         else
         {
             inputH = Input.GetAxisRaw("Horizontal");
 
-            // Comando de Pulo
-            if (Input.GetButtonDown("Jump") && estaNoChao)
+            // Lógica de Pulo Duplo
+            if (Input.GetButtonDown("Jump"))
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, forcaPulo);
+                if (estaNoChao)
+                {
+                    Pular();
+                }
+                else if (pulosRestantes > 0)
+                {
+                    Pular();
+                    pulosRestantes--; // Consome um pulo extra
+                }
             }
 
-            // Comando de Ataque (Botão X)
             if (Input.GetKeyDown(KeyCode.X))
             {
                 Atacar();
             }
 
-            // Inverter Escala (Lado)
             if (inputH > 0) transform.localScale = new Vector3(1, 1, 1);
             else if (inputH < 0) transform.localScale = new Vector3(-1, 1, 1);
         }
 
         GerenciarObjetosAnimacao();
+    }
+
+    void Pular()
+    {
+        // Reseta a velocidade vertical para o segundo pulo ter a mesma força que o primeiro
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, forcaPulo);
+
+        // Se for o pulo no ar, reiniciamos o objeto de animação para dar o feedback visual
+        if (!estaNoChao)
+        {
+            objetoPular.SetActive(false);
+            objetoPular.SetActive(true);
+        }
     }
 
     void FixedUpdate()
@@ -80,28 +107,33 @@ public class Player : MonoBehaviour
 
     void GerenciarObjetosAnimacao()
     {
-        // Desativa todos primeiro
-        objetoOcioso.SetActive(false);
-        objetoAndando.SetActive(false);
-        objetoPular.SetActive(false);
-        objetoAtacar.SetActive(false);
-
-        // Ativa apenas o correto baseado no estado
+        // Se estivermos atacando, apenas o objeto de ataque fica ativo
         if (estaAtacando)
         {
-            objetoAtacar.SetActive(true);
+            SetAnimacaoAtiva(objetoAtacar);
+            return;
         }
-        else if (!estaNoChao)
+
+        if (!estaNoChao)
         {
-            objetoPular.SetActive(true);
+            SetAnimacaoAtiva(objetoPular);
         }
         else if (Mathf.Abs(inputH) > 0.1f)
         {
-            objetoAndando.SetActive(true);
+            SetAnimacaoAtiva(objetoAndando);
         }
         else
         {
-            objetoOcioso.SetActive(true);
+            SetAnimacaoAtiva(objetoOcioso);
         }
+    }
+
+    // Função auxiliar para evitar repetir código de SetActive
+    void SetAnimacaoAtiva(GameObject ativo)
+    {
+        objetoOcioso.SetActive(objetoOcioso == ativo);
+        objetoAndando.SetActive(objetoAndando == ativo);
+        objetoPular.SetActive(objetoPular == ativo);
+        objetoAtacar.SetActive(objetoAtacar == ativo);
     }
 }
