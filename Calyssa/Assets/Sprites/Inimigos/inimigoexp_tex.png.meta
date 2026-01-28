@@ -1,0 +1,1068 @@
+fileFormatVersion: 2
+guid: f51a32bb5d272434092ac4f46ae101ee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -28476975670873598
+    second: inimigoexp_tex_0
+  - first:
+      213: 4125264535386470316
+    second: inimigoexp_tex_1
+  - first:
+      213: 1573355368455427128
+    second: inimigoexp_tex_2
+  - first:
+      213: 8907840513561290163
+    second: inimigoexp_tex_3
+  - first:
+      213: -1806248509859944685
+    second: inimigoexp_tex_4
+  - first:
+      213: 310355658566970562
+    second: inimigoexp_tex_5
+  - first:
+      213: 1704872403156168602
+    second: inimigoexp_tex_6
+  - first:
+      213: -7338828176905571035
+    second: inimigoexp_tex_7
+  - first:
+      213: 4902321848870785977
+    second: inimigoexp_tex_8
+  - first:
+      213: -5999792451663417525
+    second: inimigoexp_tex_9
+  - first:
+      213: -6831252332082995103
+    second: inimigoexp_tex_10
+  - first:
+      213: 2588428340366664111
+    second: inimigoexp_tex_11
+  - first:
+      213: -8257678332238690889
+    second: inimigoexp_tex_12
+  - first:
+      213: 4289043968359833583
+    second: inimigoexp_tex_13
+  - first:
+      213: 4129168283508395204
+    second: inimigoexp_tex_14
+  - first:
+      213: -1429602618002964804
+    second: inimigoexp_tex_15
+  - first:
+      213: -1057801866514812304
+    second: inimigoexp_tex_16
+  - first:
+      213: 6382899508839373782
+    second: inimigoexp_tex_17
+  - first:
+      213: 6664931956969085481
+    second: inimigoexp_tex_18
+  - first:
+      213: 7197513063950641603
+    second: inimigoexp_tex_19
+  - first:
+      213: 4612293989330709762
+    second: inimigoexp_tex_20
+  - first:
+      213: 170568822850407060
+    second: inimigoexp_tex_21
+  - first:
+      213: 3688179037288988972
+    second: inimigoexp_tex_22
+  - first:
+      213: 2308554290640673116
+    second: inimigoexp_tex_23
+  - first:
+      213: -3432820464493719144
+    second: inimigoexp_tex_24
+  - first:
+      213: 1545540526417376454
+    second: inimigoexp_tex_25
+  - first:
+      213: 6137881173331190334
+    second: inimigoexp_tex_26
+  - first:
+      213: -6494022343487349298
+    second: inimigoexp_tex_27
+  - first:
+      213: -3906203722246337654
+    second: inimigoexp_tex_28
+  - first:
+      213: -869726774137975400
+    second: inimigoexp_tex_29
+  - first:
+      213: 6397296683708874418
+    second: inimigoexp_tex_30
+  - first:
+      213: -1595796023454928420
+    second: inimigoexp_tex_31
+  - first:
+      213: -2090095432193094429
+    second: inimigoexp_tex_32
+  - first:
+      213: 161530088089630838
+    second: inimigoexp_tex_33
+  - first:
+      213: -8259613139132908507
+    second: inimigoexp_tex_34
+  - first:
+      213: 965430157694641367
+    second: inimigoexp_tex_35
+  - first:
+      213: 232242649885987527
+    second: inimigoexp_tex_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: inimigoexp_tex_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1707
+        width: 239
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2023cdc6754da9ff0800000000000000
+      internalID: -28476975670873598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_1
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 1416
+        width: 286
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca73a340d32ef3930800000000000000
+      internalID: 4125264535386470316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_2
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 1715
+        width: 239
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8345d322f5ea5d510800000000000000
+      internalID: 1573355368455427128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_3
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 768
+        width: 306
+        height: 628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b567a650c10f9b70800000000000000
+      internalID: 8907840513561290163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_4
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 1337
+        width: 64
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31728b9dc8aeee6e0800000000000000
+      internalID: -1806248509859944685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_5
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1259
+        width: 154
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ccaaeeb3da9e4400800000000000000
+      internalID: 310355658566970562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_6
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 1379
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f6d79fa6ce8a710800000000000000
+      internalID: 1704872403156168602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_7
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1235
+        width: 46
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5257ae7e7ae372a90800000000000000
+      internalID: -7338828176905571035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_8
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1199
+        width: 43
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b354987fbb880440800000000000000
+      internalID: 4902321848870785977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1051
+        width: 131
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f2880bd847cbca0800000000000000
+      internalID: -5999792451663417525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_10
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 1021
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160622f82348231a0800000000000000
+      internalID: -6831252332082995103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_11
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1011
+        width: 163
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa1eb1a8cd1fbe320800000000000000
+      internalID: 2588428340366664111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_12
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 753
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b50971de45d66d80800000000000000
+      internalID: -8257678332238690889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_13
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 739
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef9e10d3ceb58b30800000000000000
+      internalID: 4289043968359833583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_14
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 675
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ccc3543da0cd4930800000000000000
+      internalID: 4129168283508395204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_15
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 635
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbef6f74ef7092ce0800000000000000
+      internalID: -1429602618002964804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_16
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 643
+        width: 86
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 072b3af8ecee151f0800000000000000
+      internalID: -1057801866514812304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_17
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 619
+        width: 49
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dbd265094d949850800000000000000
+      internalID: 6382899508839373782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_18
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 565
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a9a437d489e7c50800000000000000
+      internalID: 6664931956969085481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_19
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 581
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9e2036ff3b2e360800000000000000
+      internalID: 7197513063950641603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_20
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 557
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20de9b142f8220040800000000000000
+      internalID: 4612293989330709762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_21
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 560
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a41cfc07bfd5200800000000000000
+      internalID: 170568822850407060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_22
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 567
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2107a92b4b0f2330800000000000000
+      internalID: 3688179037288988972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 519
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c59575665e1a90020800000000000000
+      internalID: 2308554290640673116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_24
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 481
+        width: 48
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8911924b9fb2c50d0800000000000000
+      internalID: -3432820464493719144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_25
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 459
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4f31f8becd27510800000000000000
+      internalID: 1545540526417376454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_26
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 459
+        width: 32
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e32a6f148622e2550800000000000000
+      internalID: 6137881173331190334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_27
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 479
+        width: 66
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd9cfcd51990e5a0800000000000000
+      internalID: -6494022343487349298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_28
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 419
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8bc23b19606ac9c0800000000000000
+      internalID: -3906203722246337654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_29
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 403
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d0cdf5b1c1ee3f0800000000000000
+      internalID: -869726774137975400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_30
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 413
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be70438073c7c850800000000000000
+      internalID: 6397296683708874418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_31
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 373
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd1fcf7b8f79ad9e0800000000000000
+      internalID: -1595796023454928420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_32
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 359
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ecc679374d7ef2e0800000000000000
+      internalID: -2090095432193094429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_33
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 178
+        width: 132
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 678be1162cedd3200800000000000000
+      internalID: 161530088089630838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_34
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 383
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52c75db7c95ff5d80800000000000000
+      internalID: -8259613139132908507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_35
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 299
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d4a6d40d95e56d00800000000000000
+      internalID: 965430157694641367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inimigoexp_tex_36
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 291
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c25628a577193300800000000000000
+      internalID: 232242649885987527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

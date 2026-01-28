@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64e5b0e436d4bed9780211ae245f7b, type: 3}
+  m_Name: inimigoexp_Data
+  m_EditorClassIdentifier: 
+  dataName: inimigoexp
+  dragonBonesJSON: {fileID: 4900000, guid: 897ce44b93263a84981783cf44b4e6bd, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 97747cf63f6de2546bf20769f97d934d, type: 3}
+    texture: {fileID: 2800000, guid: f51a32bb5d272434092ac4f46ae101ee, type: 3}
+    material: {fileID: 2100000, guid: ce781f665c0e3e6428ff4e402ad91aca, type: 2}
+    uiMaterial: {fileID: 0}

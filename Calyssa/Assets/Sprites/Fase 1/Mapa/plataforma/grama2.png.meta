@@ -1,46 +1,28 @@
 fileFormatVersion: 2
-guid: 38a11a9030625a64e9f2a69408faa571
+guid: 205cba90ce9b575478208f17c42f0490
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5503708990580621936
-    second: grama_0
+      213: 824057025908996447
+    second: grama2_0
   - first:
-      213: -2128496405816642162
-    second: grama_1
+      213: -7037480766006566642
+    second: grama2_1
   - first:
-      213: 1037323124931212094
-    second: grama_2
+      213: -685726023653388588
+    second: grama2_2
   - first:
-      213: -6973275284848043381
-    second: grama_3
+      213: 1627530646134632035
+    second: grama2_3
   - first:
-      213: -7912308381430812011
-    second: grama_4
+      213: 7625769616595794123
+    second: grama2_4
   - first:
-      213: -4797034450017242455
-    second: grama_5
+      213: -2947681917531704896
+    second: grama2_5
   - first:
-      213: -7167207718588886207
-    second: grama_6
-  - first:
-      213: 880037810472612461
-    second: grama_7
-  - first:
-      213: 7459258767120208433
-    second: grama_8
-  - first:
-      213: -2196384266114360826
-    second: grama_9
-  - first:
-      213: -7947764135567148081
-    second: grama_10
-  - first:
-      213: -4439940526133442104
-    second: grama_11
-  - first:
-      213: -8497900301738162092
-    second: grama_12
+      213: -2691526089044283213
+    second: grama2_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -162,144 +144,78 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grama_0
+      name: grama2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 37
-        width: 48
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 09d715d35d5ee93b0800000000000000
-      internalID: -5503708990580621936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_1
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 39
-        width: 53
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e857a91dbcf0672e0800000000000000
-      internalID: -2128496405816642162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_2
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 40
-        width: 27
-        height: 88
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e33b2dad2ef456e00800000000000000
-      internalID: 1037323124931212094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_3
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 40
-        width: 10
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b8a1f9d0313f93f90800000000000000
-      internalID: -6973275284848043381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_4
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 40
-        width: 29
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5927873c275d13290800000000000000
-      internalID: -7912308381430812011
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_5
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 0
-        width: 41
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a2396f55928d6db0800000000000000
-      internalID: -4797034450017242455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_6
-      rect:
-        serializedVersion: 2
-        x: 143
         y: 6
-        width: 152
+        width: 63
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5978ffbf73af6b00800000000000000
+      internalID: 824057025908996447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grama2_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 22
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01e88c8788d55e90800000000000000
+      internalID: -7037480766006566642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grama2_2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 112
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de06ea80dfcb76f0800000000000000
+      internalID: -685726023653388588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grama2_3
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1
+        width: 156
         height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -309,84 +225,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 143521ead86f88c90800000000000000
-      internalID: -7167207718588886207
+      spriteID: 36eaae7ef76269610800000000000000
+      internalID: 1627530646134632035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grama_7
+      name: grama2_4
       rect:
         serializedVersion: 2
-        x: 274
-        y: 0
-        width: 22
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d62f12ad9b5863c00800000000000000
-      internalID: 880037810472612461
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_8
-      rect:
-        serializedVersion: 2
-        x: 284
-        y: 0
-        width: 112
-        height: 170
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1321bede35c948760800000000000000
-      internalID: 7459258767120208433
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_9
-      rect:
-        serializedVersion: 2
-        x: 377
-        y: 1
-        width: 156
-        height: 124
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 60a1ffb9520e481e0800000000000000
-      internalID: -2196384266114360826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grama_10
-      rect:
-        serializedVersion: 2
-        x: 519
-        y: 33
+        x: 287
+        y: 32
         width: 27
         height: 88
       alignment: 0
@@ -397,18 +247,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fcb3ee4b0aed3b190800000000000000
-      internalID: -7947764135567148081
+      spriteID: bc8b820301d24d960800000000000000
+      internalID: 7625769616595794123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grama_11
+      name: grama2_5
       rect:
         serializedVersion: 2
-        x: 545
-        y: 33
+        x: 313
+        y: 32
         width: 10
         height: 61
       alignment: 0
@@ -419,20 +269,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c984f38d992262c0800000000000000
-      internalID: -4439940526133442104
+      spriteID: 0c13eaad9eab717d0800000000000000
+      internalID: -2947681917531704896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grama_12
+      name: grama2_6
       rect:
         serializedVersion: 2
-        x: 551
-        y: 33
+        x: 319
+        y: 32
         width: 28
-        height: 92
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,8 +291,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 458463a03b4611a80800000000000000
-      internalID: -8497900301738162092
+      spriteID: 3b0b1d64847c5aad0800000000000000
+      internalID: -2691526089044283213
       vertices: []
       indices: 
       edges: []
@@ -461,19 +311,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grama_0: -5503708990580621936
-      grama_1: -2128496405816642162
-      grama_10: -7947764135567148081
-      grama_11: -4439940526133442104
-      grama_12: -8497900301738162092
-      grama_2: 1037323124931212094
-      grama_3: -6973275284848043381
-      grama_4: -7912308381430812011
-      grama_5: -4797034450017242455
-      grama_6: -7167207718588886207
-      grama_7: 880037810472612461
-      grama_8: 7459258767120208433
-      grama_9: -2196384266114360826
+      grama2_0: 824057025908996447
+      grama2_1: -7037480766006566642
+      grama2_2: -685726023653388588
+      grama2_3: 1627530646134632035
+      grama2_4: 7625769616595794123
+      grama2_5: -2947681917531704896
+      grama2_6: -2691526089044283213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
