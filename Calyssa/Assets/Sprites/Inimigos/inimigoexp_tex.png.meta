@@ -1060,7 +1060,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      inimigoexp_tex_0: -28476975670873598
+      inimigoexp_tex_1: 4125264535386470316
+      inimigoexp_tex_10: -6831252332082995103
+      inimigoexp_tex_11: 2588428340366664111
+      inimigoexp_tex_12: -8257678332238690889
+      inimigoexp_tex_13: 4289043968359833583
+      inimigoexp_tex_14: 4129168283508395204
+      inimigoexp_tex_15: -1429602618002964804
+      inimigoexp_tex_16: -1057801866514812304
+      inimigoexp_tex_17: 6382899508839373782
+      inimigoexp_tex_18: 6664931956969085481
+      inimigoexp_tex_19: 7197513063950641603
+      inimigoexp_tex_2: 1573355368455427128
+      inimigoexp_tex_20: 4612293989330709762
+      inimigoexp_tex_21: 170568822850407060
+      inimigoexp_tex_22: 3688179037288988972
+      inimigoexp_tex_23: 2308554290640673116
+      inimigoexp_tex_24: -3432820464493719144
+      inimigoexp_tex_25: 1545540526417376454
+      inimigoexp_tex_26: 6137881173331190334
+      inimigoexp_tex_27: -6494022343487349298
+      inimigoexp_tex_28: -3906203722246337654
+      inimigoexp_tex_29: -869726774137975400
+      inimigoexp_tex_3: 8907840513561290163
+      inimigoexp_tex_30: 6397296683708874418
+      inimigoexp_tex_31: -1595796023454928420
+      inimigoexp_tex_32: -2090095432193094429
+      inimigoexp_tex_33: 161530088089630838
+      inimigoexp_tex_34: -8259613139132908507
+      inimigoexp_tex_35: 965430157694641367
+      inimigoexp_tex_36: 232242649885987527
+      inimigoexp_tex_4: -1806248509859944685
+      inimigoexp_tex_5: 310355658566970562
+      inimigoexp_tex_6: 1704872403156168602
+      inimigoexp_tex_7: -7338828176905571035
+      inimigoexp_tex_8: 4902321848870785977
+      inimigoexp_tex_9: -5999792451663417525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

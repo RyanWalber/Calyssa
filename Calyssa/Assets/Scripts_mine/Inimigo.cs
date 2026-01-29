@@ -1,123 +1,101 @@
 using UnityEngine;
-using DragonBones; 
-using Transform = UnityEngine.Transform; 
+using DragonBones;
+using Transform = UnityEngine.Transform;
 
 public class Inimigo : MonoBehaviour
 {
-    [Header("Status")]
-    public int vidaMaxima = 3;
-    private int vidaAtual;
-    private bool estaMorto = false; 
+    [Header("CONFIGURAÇÃO VISUAL")]
+    public UnityArmatureComponent visualVivo;
+    public UnityArmatureComponent visualMorto;
 
-    [Header("Configuração DragonBones")]
-    public string animacaoAndar = "animtion0"; 
-    public string animacaoMorte = "death"; // Verifique o nome no DragonBones!
+    [Header("STATUS")]
+    public int vida = 3;
+    public int danoNoPlayer = 1;
 
-    [Header("Movimento")]
+    [Header("MOVIMENTO")]
     public float velocidade = 2f;
-    public float distanciaPatrulha = 3f;
-    public float raioDeteccao = 5f;
-    
+    public float distanciaPatrulha = 5f;
+
     private Vector3 posicaoInicial;
     private bool indoParaDireita = true;
-    private Transform player;
-    private UnityArmatureComponent armatureComponent;
+    private bool estaMorto = false;
 
     void Start()
     {
-        vidaAtual = vidaMaxima;
         posicaoInicial = transform.position;
-        armatureComponent = GetComponentInChildren<UnityArmatureComponent>();
 
-        GameObject p = GameObject.FindGameObjectWithTag("Player");
-        if (p != null) player = p.transform;
+        // --- INICIAR ANIMAÇÃO ---
+        if (visualVivo != null)
+        {
+            visualVivo.gameObject.SetActive(true);
+
+            // Toca em loop infinito (0)
+            if (visualVivo.animation.animationNames.Count > 0)
+            {
+                string anim = visualVivo.animation.animationNames[0];
+                visualVivo.animation.Play(anim, 0);
+            }
+
+            // REMOVI A LINHA QUE FORÇAVA ESCALA (1,1,1)
+            // Agora o Unity vai manter o "2" que você colocou no Inspector.
+        }
+
+        if (visualMorto != null) visualMorto.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        if (estaMorto || player == null || armatureComponent == null) return;
+        if (estaMorto) return;
 
-        float distanciaParaPlayer = Vector2.Distance(transform.position, player.position);
-
-        if (distanciaParaPlayer < raioDeteccao)
-        {
-            Perseguir();
-        }
-        else
-        {
-            Patrulhar();
-        }
-    }
-
-    void Patrulhar()
-    {
         float limiteDireita = posicaoInicial.x + distanciaPatrulha;
-        float limiteEsquerda = posicaoInicial.x - distanciaPatrulha;
+        float limiteEsquerda = posicaoInicial.x;
 
+        // Movimento simples de vai e vem sem virar (Flip)
         if (indoParaDireita)
         {
-            MoverPara(new Vector2(limiteDireita, transform.position.y));
-            if (transform.position.x >= limiteDireita - 0.1f) indoParaDireita = false;
+            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+            if (transform.position.x >= limiteDireita) indoParaDireita = false;
         }
         else
         {
-            MoverPara(new Vector2(limiteEsquerda, transform.position.y));
-            if (transform.position.x <= limiteEsquerda + 0.1f) indoParaDireita = true;
+            transform.Translate(Vector2.left * velocidade * Time.deltaTime);
+            if (transform.position.x <= limiteEsquerda) indoParaDireita = true;
         }
     }
 
-    void Perseguir()
-    {
-        MoverPara(new Vector2(player.position.x, transform.position.y));
-    }
-
-    void MoverPara(Vector2 destino)
-    {
-        transform.position = Vector2.MoveTowards(transform.position, destino, velocidade * Time.deltaTime);
-
-        if (armatureComponent.animation.lastAnimationName != animacaoAndar)
-        {
-            armatureComponent.animation.Play(animacaoAndar);
-        }
-
-        if (destino.x > transform.position.x) 
-            armatureComponent.armature.flipX = false; 
-        else if (destino.x < transform.position.x) 
-            armatureComponent.armature.flipX = true; 
-    }
-
-    public void ReceberDano(int dano)
+    public void ReceberDano(int dano = 1)
     {
         if (estaMorto) return;
-        vidaAtual -= dano;
-
-        if (vidaAtual <= 0)
-        {
-            Morrer();
-        }
+        vida -= dano;
+        if (vida <= 0) Morrer();
     }
 
     void Morrer()
     {
         estaMorto = true;
+        GetComponent<Collider2D>().enabled = false;
+        if (GetComponent<Rigidbody2D>()) GetComponent<Rigidbody2D>().simulated = false;
 
-        // Toca a animação de morte uma única vez (loop = 1)
-        if (armatureComponent != null)
+        if (visualVivo != null) visualVivo.gameObject.SetActive(false);
+        if (visualMorto != null)
         {
-            armatureComponent.animation.Play(animacaoMorte, 1);
+            visualMorto.gameObject.SetActive(true);
+            // Garante que a explosão também use a escala correta se necessário
+            if (visualMorto.animation.animationNames.Count > 0)
+            {
+                visualMorto.animation.Play(visualMorto.animation.animationNames[0], 1);
+            }
         }
 
-        // Remove o colisor para o Aster não esbarrar no corpo
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null) col.enabled = false;
-
-        // Destrói o objeto após 1.5 segundos (tempo para ver a animação)
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1.0f);
     }
 
-    void OnDrawGizmosSelected()
+    void OnCollisionEnter2D(Collision2D colisao)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, raioDeteccao);
+        if (estaMorto) return;
+        if (colisao.gameObject.CompareTag("Player"))
+        {
+            colisao.gameObject.SendMessage("Machucar", danoNoPlayer, SendMessageOptions.DontRequireReceiver);
+        }
     }
 }
