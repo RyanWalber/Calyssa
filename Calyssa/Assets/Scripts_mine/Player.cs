@@ -1,11 +1,14 @@
 using UnityEngine;
+using DragonBones; 
+// Esta linha abaixo resolve o erro da imagem!
+using Transform = UnityEngine.Transform; 
 
 public class Player : MonoBehaviour
 {
     [Header("Configurações de Movimento")]
     public float velocidade = 5f;
     public float forcaPulo = 12f;
-    public int pulosExtrasMax = 1; // Quantidade de pulos extras (1 = Pulo Duplo)
+    public int pulosExtrasMax = 1; 
 
     [Header("Objetos de Animação (Arraste da Hierarchy)")]
     public GameObject objetoOcioso;
@@ -25,18 +28,20 @@ public class Player : MonoBehaviour
     private float tempoAtaque = 0.5f; 
     private float cronometroAtaque;
     
-    private int pulosRestantes; // Contador de pulos
+    private int pulosRestantes; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        pulosRestantes = pulosExtrasMax; // Inicializa os pulos
+        pulosRestantes = pulosExtrasMax; 
     }
 
     void Update()
     {
-        // Reseta o contador de pulos quando encosta no chão
-        if (estaNoChao)
+        // Verifica o chão
+        estaNoChao = Physics2D.OverlapCircle(verificadorChao.position, raioVerificacao, camadaChao);
+
+        if (estaNoChao && rb.linearVelocity.y <= 0.1f)
         {
             pulosRestantes = pulosExtrasMax;
         }
@@ -51,7 +56,6 @@ public class Player : MonoBehaviour
         {
             inputH = Input.GetAxisRaw("Horizontal");
 
-            // Lógica de Pulo Duplo
             if (Input.GetButtonDown("Jump"))
             {
                 if (estaNoChao)
@@ -60,8 +64,8 @@ public class Player : MonoBehaviour
                 }
                 else if (pulosRestantes > 0)
                 {
+                    pulosRestantes--; 
                     Pular();
-                    pulosRestantes--; // Consome um pulo extra
                 }
             }
 
@@ -79,14 +83,16 @@ public class Player : MonoBehaviour
 
     void Pular()
     {
-        // Reseta a velocidade vertical para o segundo pulo ter a mesma força que o primeiro
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, forcaPulo);
 
-        // Se for o pulo no ar, reiniciamos o objeto de animação para dar o feedback visual
-        if (!estaNoChao)
+        // Reinicia a animação de pulo para dar o efeito visual
+        SetAnimacaoAtiva(objetoPular);
+        
+        UnityArmatureComponent armature = objetoPular.GetComponent<UnityArmatureComponent>();
+        if (armature != null && armature.animation.animationNames.Count > 0)
         {
-            objetoPular.SetActive(false);
-            objetoPular.SetActive(true);
+            // Toca a animação de pulo apenas 1 VEZ (sem repetir no ar)
+            armature.animation.Play(armature.animation.animationNames[0], 1);
         }
     }
 
@@ -96,24 +102,30 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(inputH * velocidade, rb.linearVelocity.y);
         }
-        estaNoChao = Physics2D.OverlapCircle(verificadorChao.position, raioVerificacao, camadaChao);
     }
 
     void Atacar()
     {
         estaAtacando = true;
         cronometroAtaque = tempoAtaque;
+
+        SetAnimacaoAtiva(objetoAtacar);
+        UnityArmatureComponent armature = objetoAtacar.GetComponent<UnityArmatureComponent>();
+        if (armature != null && armature.animation.animationNames.Count > 0)
+        {
+            armature.animation.Play(armature.animation.animationNames[0], 1);
+        }
     }
 
     void GerenciarObjetosAnimacao()
     {
-        // Se estivermos atacando, apenas o objeto de ataque fica ativo
         if (estaAtacando)
         {
             SetAnimacaoAtiva(objetoAtacar);
             return;
         }
 
+        // Se não estiver no chão, mantém o objeto de pulo
         if (!estaNoChao)
         {
             SetAnimacaoAtiva(objetoPular);
@@ -128,12 +140,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Função auxiliar para evitar repetir código de SetActive
     void SetAnimacaoAtiva(GameObject ativo)
     {
-        objetoOcioso.SetActive(objetoOcioso == ativo);
-        objetoAndando.SetActive(objetoAndando == ativo);
-        objetoPular.SetActive(objetoPular == ativo);
-        objetoAtacar.SetActive(objetoAtacar == ativo);
+        // Só muda se o objeto já não for o ativo (evita resets desnecessários)
+        if (objetoOcioso.activeSelf != (objetoOcioso == ativo)) objetoOcioso.SetActive(objetoOcioso == ativo);
+        if (objetoAndando.activeSelf != (objetoAndando == ativo)) objetoAndando.SetActive(objetoAndando == ativo);
+        if (objetoPular.activeSelf != (objetoPular == ativo)) objetoPular.SetActive(objetoPular == ativo);
+        if (objetoAtacar.activeSelf != (objetoAtacar == ativo)) objetoAtacar.SetActive(objetoAtacar == ativo);
     }
 }
