@@ -17,6 +17,24 @@ public class VidaPlayer : MonoBehaviour
         AtualizarInterface();
     }
 
+    // --- NOVO: Função para Ganhar Vida (Chamada pelo Item) ---
+    public void GanharVida(int quantidade)
+    {
+        vidaAtual += quantidade;
+
+        // Trava a vida para não passar do máximo (ex: não ficar com 4 corações se o max é 3)
+        if (vidaAtual > vidaMaxima)
+        {
+            vidaAtual = vidaMaxima;
+        }
+
+        Debug.Log("Player recuperou vida! Vida: " + vidaAtual);
+
+        // Importante: Atualiza os corações na tela para mostrar que curou
+        AtualizarInterface();
+    }
+    // ---------------------------------------------------------
+
     // O Inimigo vai chamar essa função quando tocar em você
     public void Machucar(int dano)
     {
@@ -41,11 +59,11 @@ public class VidaPlayer : MonoBehaviour
             // Se não, esconde.
             if (i < vidaAtual)
             {
-                coracoesUI[i].SetActive(true);
+                if (coracoesUI[i] != null) coracoesUI[i].SetActive(true);
             }
             else
             {
-                coracoesUI[i].SetActive(false);
+                if (coracoesUI[i] != null) coracoesUI[i].SetActive(false);
             }
         }
     }
