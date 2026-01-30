@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class PlataformaMovelPro : MonoBehaviour
 {
-    [Header("Configuração")]
+    [Header("ConfiguraÃ§Ã£o")]
     public Transform pontoDestino;
     public float velocidade = 3f;
 
     private Vector3 posA;
     private Vector3 posB;
     private Vector3 alvoAtual;
-    private Rigidbody2D rb; // Referência para o Rigidbody
+    private Rigidbody2D rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Pega o Rigidbody
+        rb = GetComponent<Rigidbody2D>();
         posA = transform.position;
 
         if (pontoDestino != null)
         {
             posB = pontoDestino.position;
-            pontoDestino.parent = null;
+            pontoDestino.parent = null; 
         }
         else
         {
@@ -29,32 +29,20 @@ public class PlataformaMovelPro : MonoBehaviour
         alvoAtual = posB;
     }
 
-    // Mudamos para FixedUpdate para lidar com física
     void FixedUpdate()
     {
-        if (posA == posB) return;
-
-        // Move o Rigidbody em vez do Transform
+        // Move a plataforma
         Vector3 novaPosicao = Vector3.MoveTowards(rb.position, alvoAtual, velocidade * Time.fixedDeltaTime);
         rb.MovePosition(novaPosicao);
 
+        // Troca de direÃ§Ã£o
         if (Vector3.Distance(rb.position, alvoAtual) < 0.1f)
         {
             alvoAtual = (alvoAtual == posA) ? posB : posA;
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        if (pontoDestino != null && Application.isPlaying == false)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(transform.position, pontoDestino.position);
-            Gizmos.DrawWireSphere(pontoDestino.position, 0.3f);
-        }
-    }
-
-    // Grudar o Player
+    // --- SISTEMA DE GRUDAR (PARENTS) ---
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -68,6 +56,20 @@ public class PlataformaMovelPro : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.transform.SetParent(null);
+        }
+    }
+
+    // --- VISUALIZADOR DA LINHA ---
+    private void OnDrawGizmos()
+    {
+        // SÃ³ desenha se tiver um destino arrastado
+        if (pontoDestino != null)
+        {
+            Gizmos.color = Color.yellow;
+            // Desenha a linha da plataforma atÃ© o destino
+            Gizmos.DrawLine(transform.position, pontoDestino.position);
+            // Desenha uma bolinha no destino para facilitar
+            Gizmos.DrawWireSphere(pontoDestino.position, 0.5f);
         }
     }
 }

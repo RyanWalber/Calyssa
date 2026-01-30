@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 19756c13e338b2a4bbff7303a8515a18
+guid: 228e91b782ac3ad49b8c8fc140fbeb35
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 52224158965718024
-    second: rect3_0
+      213: 5455803409418326752
+    second: ociosou_tex_0
+  - first:
+      213: 5268242045292222587
+    second: ociosou_tex_1
+  - first:
+      213: -5187406876681580241
+    second: ociosou_tex_2
+  - first:
+      213: 3160039822172256085
+    second: ociosou_tex_3
+  - first:
+      213: -3057315392040169859
+    second: ociosou_tex_4
+  - first:
+      213: 6070374806808346931
+    second: ociosou_tex_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rect3_0
+      name: ociosou_tex_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1066
-        height: 491
+        y: 1322
+        width: 736
+        height: 726
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +156,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80c58db889989b000800000000000000
-      internalID: 52224158965718024
+      spriteID: 0e29eb67b48e6bb40800000000000000
+      internalID: 5455803409418326752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ociosou_tex_1
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1572
+        width: 267
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b789b645a3e8c1940800000000000000
+      internalID: 5268242045292222587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ociosou_tex_2
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1404
+        width: 278
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f21d9f10ee0a208b0800000000000000
+      internalID: -5187406876681580241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ociosou_tex_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 932
+        width: 322
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5577aa4c977badb20800000000000000
+      internalID: 3160039822172256085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ociosou_tex_4
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1088
+        width: 368
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e8c1b69db3295d0800000000000000
+      internalID: -3057315392040169859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ociosou_tex_5
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1124
+        width: 276
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 331ca4d79bd4e3450800000000000000
+      internalID: 6070374806808346931
       vertices: []
       indices: 
       edges: []
@@ -160,8 +285,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rect3_0: 52224158965718024
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
