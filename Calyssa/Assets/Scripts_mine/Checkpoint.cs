@@ -16,23 +16,17 @@ public class Checkpoint : MonoBehaviour
         {
             ativado = true;
             
-            // Salva o progresso
             VidaPlayer.pontoDeRespawn = transform.position;
             VidaPlayer.temCheckpointSalvo = true;
 
-            // 1. Muda a cor do Checkpoint (opcional)
             SpriteRenderer sprite = GetComponent<SpriteRenderer>();
             if (sprite != null)
             {
                 sprite.color = corAtivado;
             }
 
-            // 2. Faz aparecer a Luz/Efeito
             if (luzOuParticula != null)
             {
-                // Instantiate cria o objeto na cena
-                // transform.position = lugar do checkpoint
-                // Quaternion.identity = rotação padrão
                 Instantiate(luzOuParticula, transform.position, Quaternion.identity);
             }
         }

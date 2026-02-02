@@ -1,6 +1,5 @@
 using UnityEngine;
 using DragonBones; 
-// Esta linha abaixo resolve o erro da imagem!
 using Transform = UnityEngine.Transform; 
 
 public class Player : MonoBehaviour
@@ -38,7 +37,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Verifica o chão
         estaNoChao = Physics2D.OverlapCircle(verificadorChao.position, raioVerificacao, camadaChao);
 
         if (estaNoChao && rb.linearVelocity.y <= 0.1f)
@@ -85,13 +83,11 @@ public class Player : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, forcaPulo);
 
-        // Reinicia a animação de pulo para dar o efeito visual
         SetAnimacaoAtiva(objetoPular);
         
         UnityArmatureComponent armature = objetoPular.GetComponent<UnityArmatureComponent>();
         if (armature != null && armature.animation.animationNames.Count > 0)
         {
-            // Toca a animação de pulo apenas 1 VEZ (sem repetir no ar)
             armature.animation.Play(armature.animation.animationNames[0], 1);
         }
     }
@@ -125,7 +121,6 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // Se não estiver no chão, mantém o objeto de pulo
         if (!estaNoChao)
         {
             SetAnimacaoAtiva(objetoPular);
@@ -142,7 +137,6 @@ public class Player : MonoBehaviour
 
     void SetAnimacaoAtiva(GameObject ativo)
     {
-        // Só muda se o objeto já não for o ativo (evita resets desnecessários)
         if (objetoOcioso.activeSelf != (objetoOcioso == ativo)) objetoOcioso.SetActive(objetoOcioso == ativo);
         if (objetoAndando.activeSelf != (objetoAndando == ativo)) objetoAndando.SetActive(objetoAndando == ativo);
         if (objetoPular.activeSelf != (objetoPular == ativo)) objetoPular.SetActive(objetoPular == ativo);

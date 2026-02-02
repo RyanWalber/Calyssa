@@ -31,18 +31,15 @@ public class PlataformaMovelPro : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Move a plataforma
         Vector3 novaPosicao = Vector3.MoveTowards(rb.position, alvoAtual, velocidade * Time.fixedDeltaTime);
         rb.MovePosition(novaPosicao);
 
-        // Troca de direção
         if (Vector3.Distance(rb.position, alvoAtual) < 0.1f)
         {
             alvoAtual = (alvoAtual == posA) ? posB : posA;
         }
     }
 
-    // --- SISTEMA DE GRUDAR (PARENTS) ---
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -59,16 +56,12 @@ public class PlataformaMovelPro : MonoBehaviour
         }
     }
 
-    // --- VISUALIZADOR DA LINHA ---
     private void OnDrawGizmos()
     {
-        // Só desenha se tiver um destino arrastado
         if (pontoDestino != null)
         {
-            Gizmos.color = Color.yellow;
-            // Desenha a linha da plataforma até o destino
+            Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, pontoDestino.position);
-            // Desenha uma bolinha no destino para facilitar
             Gizmos.DrawWireSphere(pontoDestino.position, 0.5f);
         }
     }
