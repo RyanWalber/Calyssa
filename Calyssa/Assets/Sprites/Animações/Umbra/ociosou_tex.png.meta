@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ociosou_tex_0: 5455803409418326752
+      ociosou_tex_1: 5268242045292222587
+      ociosou_tex_2: -5187406876681580241
+      ociosou_tex_3: 3160039822172256085
+      ociosou_tex_4: -3057315392040169859
+      ociosou_tex_5: 6070374806808346931
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

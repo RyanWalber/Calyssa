@@ -2,68 +2,49 @@ using UnityEngine;
 
 public class SalaDoBoss : MonoBehaviour
 {
-    [Header("O Chefão")]
-    public GameObject boss; // Arraste o objeto do Boss aqui
+    [Header("Configurações")]
+    public BossUmbra scriptDoBoss; // Arraste o objeto do Boss (Umbra) aqui
+    public float tempoParaAcordar = 3f;
 
     [Header("Portas")]
-    public GameObject portaEntrada; // A porta que fecha atrás de você
-    public GameObject portaSaida;   // A porta que abre quando vence
+    public GameObject portaEntrada; // A porta que fecha nas costas (PORTA_0)
+    public GameObject portaSaida;   // A porta do final (PORTA_0 (1))
 
-    private bool batalhaComecou = false;
+    private bool ativou = false;
 
     void Start()
     {
-        // Garante o estado inicial das portas
-        if (portaEntrada != null) portaEntrada.SetActive(false); // Começa aberta
-        if (portaSaida != null) portaSaida.SetActive(true);   // Começa fechada
-    }
-
-    void Update()
-    {
-        // Se a batalha já começou...
-        if (batalhaComecou)
-        {
-            // Verifica se o Boss foi destruído (é null)
-            if (boss == null)
-            {
-                VencerBatalha();
-            }
-        }
+        // Garante que a entrada está aberta e a saída fechada
+        if(portaEntrada != null) portaEntrada.SetActive(false);
+        if(portaSaida != null) portaSaida.SetActive(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Se o Player passou pelo gatilho invisível
-        if (other.CompareTag("Player") && !batalhaComecou)
+        if (ativou) return; // Se já ativou, não faz nada
+
+        if (other.CompareTag("Player"))
         {
-            ComecarBatalha();
+            ativou = true;
+            Debug.Log("O Player entrou na arena!");
+
+            // 1. FECHA A PORTA (TRANCA O JOGADOR)
+            if (portaEntrada != null) 
+            {
+                portaEntrada.SetActive(true); // Agora ela aparece e tem colisão sólida!
+            }
+
+            // 2. ACORDA O BOSS
+            if (scriptDoBoss != null)
+            {
+                // Passamos as referências para o Boss saber qual porta abrir quando morrer
+                scriptDoBoss.portaSaida = portaSaida; 
+                scriptDoBoss.AcordarBoss(tempoParaAcordar);
+            }
+
+            // Opcional: Destrói este gatilho para não ativar de novo
+            // (Mas mantém as portas funcionando)
+            GetComponent<Collider2D>().enabled = false;
         }
-    }
-
-    void ComecarBatalha()
-    {
-        batalhaComecou = true;
-
-        // Tranca o jogador na sala
-        if (portaEntrada != null) portaEntrada.SetActive(true);
-
-        // Dica: Se quiser ativar o boss só quando entrar, faça aqui:
-        if (boss != null) boss.SetActive(true);
-
-        Debug.Log("AS PORTAS SE FECHARAM! LUTA!");
-    }
-
-    void VencerBatalha()
-    {
-        // Abre a saída
-        if (portaSaida != null) portaSaida.SetActive(false);
-
-        // Abre a entrada também (opcional, pra voltar)
-        if (portaEntrada != null) portaEntrada.SetActive(false);
-
-        Debug.Log("BOSS DERROTADO! CAMINHO LIVRE.");
-
-        // Desliga este script para não rodar mais
-        this.enabled = false;
     }
 }
