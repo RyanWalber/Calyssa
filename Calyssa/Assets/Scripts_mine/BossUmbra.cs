@@ -4,189 +4,193 @@ using System.Collections;
 
 public class BossUmbra : MonoBehaviour
 {
+    [Header("CONFIGURAÇÃO OBRIGATÓRIA")]
+    public Transform player;
+    [Tooltip("Arraste os objetos vazios (Gizmos) aqui")]
+    public Transform[] pontosDeTeleporte;
+
+    [Header("AJUSTE VISUAL")]
+    [Tooltip("Marque isso se o desenho original do seu boss olha para a Esquerda")]
+    public bool spriteOriginalOlhaEsquerda = true; 
+
     [Header("VIDA & UI")]
     public int vidaTotal = 20;
-    public Slider barraVida; // Arraste o Slider aqui
-    public GameObject portaSaida; // Ser� preenchido automaticamente pelo script da sala
+    public Slider barraVida;
+    public GameObject portaSaida;
     private int vidaAtual;
 
     [Header("COMBATE")]
-    public float forcaEmpurrao = 15f;
-    public float distanciaTeleporte = 12f;
+    public int danoNoPlayer = 1;
+    public float forcaEmpurrao = 30f; 
     
-    [Header("VELOCIDADE (F�ria)")]
-    public float velocidadeBase = 12f;
-    public float velocidadeMaxima = 20f;
+    [Header("VELOCIDADE (MODO FÚRIA)")]
+    public float velocidadeInicial = 10f; // Velocidade quando está calmo
+    public float velocidadeFinal = 22f;   // Velocidade quando está quase morrendo
     
-    private Transform player;
-    private bool estaAtacando = false;
-    private bool invulneravel = false;
-    private bool lutaComecou = false; // O Boss come�a dormindo
+    // VARIÁVEIS INTERNAS
+    private float velocidadeAtual;
+    private bool podeMover = false; 
+    private bool lutaComecou = false;
+    
     private SpriteRenderer[] visuais;
-    private Rigidbody2D rb;
+    private Collider2D colisorBoss;
+    private Rigidbody2D rbBoss;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         vidaAtual = vidaTotal;
-        
-        // Tenta achar o player caso n�o tenha sido definido
-        if (GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        
-        visuais = GetComponentsInChildren<SpriteRenderer>();
+        velocidadeAtual = velocidadeInicial;
 
-        // CONFIGURA��O INICIAL: Esconde a barra de vida
+        visuais = GetComponentsInChildren<SpriteRenderer>();
+        colisorBoss = GetComponent<Collider2D>();
+        rbBoss = GetComponent<Rigidbody2D>();
+
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        
         if (barraVida) 
         {
             barraVida.maxValue = vidaTotal;
             barraVida.value = vidaAtual;
             barraVida.gameObject.SetActive(false); 
         }
+
+        if (rbBoss) rbBoss.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    // --- FUN��O PARA ACORDAR O BOSS (CHAMADA PELO GATILHO) ---
     public void AcordarBoss(float tempoEspera)
     {
-        if (lutaComecou) return;
-        StartCoroutine(IniciarLuta(tempoEspera));
+        if (!lutaComecou) StartCoroutine(InicioBatalha(tempoEspera));
     }
 
-    IEnumerator IniciarLuta(float delay)
+    IEnumerator InicioBatalha(float delay)
     {
-        // 1. Espera o tempo de suspense
         yield return new WaitForSeconds(delay);
-
-        // 2. Mostra a barra de vida e inicia o ataque
         if (barraVida) barraVida.gameObject.SetActive(true);
         lutaComecou = true;
-        
-        StartCoroutine(CicloDeBatalha());
+        podeMover = true;
     }
 
     void Update()
     {
-        // Se a luta n�o come�ou, ele s� olha (ou fica parado)
-        if (lutaComecou)
-        {
-             OlharParaPlayer();
-        }
+        if (!lutaComecou || !podeMover || player == null) return;
+
+        // 1. CALCULA VELOCIDADE BASEADA NA VIDA (QUANTO MENOS VIDA, MAIS RÁPIDO)
+        float porcentagemVida = (float)vidaAtual / (float)vidaTotal;
+        // Lerp faz a transição suave entre a velocidade máxima e mínima
+        velocidadeAtual = Mathf.Lerp(velocidadeFinal, velocidadeInicial, porcentagemVida);
+
+        // 2. MOVIMENTO
+        transform.position = Vector3.MoveTowards(transform.position, player.position, velocidadeAtual * Time.deltaTime);
+
+        // 3. ROTAÇÃO (CORRIGIDA)
+        OlharParaPlayer();
     }
 
     void OlharParaPlayer()
     {
-        if (player == null) return;
-        if (player.position.x > transform.position.x) transform.rotation = Quaternion.Euler(0, 0, 0);
-        else transform.rotation = Quaternion.Euler(0, 180, 0);
-    }
+        // Se o player está à direita (x maior que boss)
+        bool playerEstaNaDireita = player.position.x > transform.position.x;
 
-    IEnumerator CicloDeBatalha()
-    {
-        while (vidaAtual > 0)
+        // Lógica para inverter corretamente dependendo de como o desenho foi feito
+        float escalaX = 1;
+
+        if (playerEstaNaDireita)
         {
-            float porcentagemVida = (float)vidaAtual / vidaTotal;
-            float tempoEspera = Mathf.Lerp(0.5f, 2.0f, porcentagemVida);
-
-            yield return new WaitForSeconds(tempoEspera);
-
-            if (!estaAtacando && !invulneravel && lutaComecou)
-            {
-                TeleportarLonge();
-                yield return new WaitForSeconds(0.5f);
-                yield return StartCoroutine(AtaqueDash());
-            }
-        }
-    }
-
-    void TeleportarLonge()
-    {
-        if (player == null) return;
-        
-        float direcao = Random.value > 0.5f ? 1f : -1f;
-        Vector3 alvo = player.position;
-        alvo.x += direcao * distanciaTeleporte;
-        alvo.y += 1f; 
-        transform.position = alvo;
-        OlharParaPlayer();
-    }
-
-    IEnumerator AtaqueDash()
-    {
-        if (player == null) yield break;
-
-        estaAtacando = true;
-        float velocidadeAtual = Mathf.Lerp(velocidadeMaxima, velocidadeBase, (float)vidaAtual / vidaTotal);
-        Vector3 posicaoAlvo = player.position;
-        float tempoDesistencia = 2.0f;
-
-        while (Vector3.Distance(transform.position, posicaoAlvo) > 0.5f && tempoDesistencia > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, posicaoAlvo, velocidadeAtual * Time.deltaTime);
-            tempoDesistencia -= Time.deltaTime;
-            yield return null;
-        }
-        estaAtacando = false;
-    }
-
-    public void TomarDano(int dano)
-    {
-        // S� toma dano se a luta j� come�ou!
-        if (invulneravel || vidaAtual <= 0 || !lutaComecou) return; 
-
-        vidaAtual -= dano;
-        if (barraVida) barraVida.value = vidaAtual;
-
-        if (vidaAtual <= 0)
-        {
-            Morrer();
+            // Se o player ta na direita, e o sprite olha pra esquerda, temos que inverter (-1)
+            escalaX = spriteOriginalOlhaEsquerda ? -1 : 1;
         }
         else
         {
-            StopAllCoroutines();
-            StartCoroutine(ReacaoDano());
+            // Se o player ta na esquerda
+            escalaX = spriteOriginalOlhaEsquerda ? 1 : -1;
+        }
+
+        transform.localScale = new Vector3(escalaX, 1, 1);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (!podeMover) return;
+
+        if (col.gameObject.CompareTag("Player"))
+        {
+            podeMover = false; 
+            if(rbBoss) rbBoss.linearVelocity = Vector2.zero; // Unity 6
+
+            AplicarEfeitoNoPlayer(col.gameObject);
+            StartCoroutine(RotinaTeleporte());
         }
     }
 
-    IEnumerator ReacaoDano()
+    void AplicarEfeitoNoPlayer(GameObject p)
     {
-        invulneravel = true;
+        p.GetComponent<VidaPlayer>()?.Machucar(danoNoPlayer);
+
+        Rigidbody2D rbPlayer = p.GetComponent<Rigidbody2D>();
+        Player scriptPlayer = p.GetComponent<Player>();
+
+        if (rbPlayer)
+        {
+            if (scriptPlayer) scriptPlayer.enabled = false;
+            rbPlayer.linearVelocity = Vector2.zero; 
+            
+            Vector2 direcao = (p.transform.position - transform.position).normalized;
+            direcao += Vector2.up * 0.5f; 
+            
+            rbPlayer.AddForce(direcao * forcaEmpurrao, ForceMode2D.Impulse);
+            StartCoroutine(DestravarPlayer(scriptPlayer));
+        }
+    }
+
+    IEnumerator DestravarPlayer(Player p)
+    {
+        yield return new WaitForSeconds(0.4f);
+        if (p) p.enabled = true;
+    }
+
+    IEnumerator RotinaTeleporte()
+    {
+        // Some
+        if(colisorBoss) colisorBoss.enabled = false;
         foreach(var r in visuais) r.enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        TeleportarLonge();
+
+        // Muda de Lugar (GIZMOS)
+        if (pontosDeTeleporte.Length > 0)
+        {
+            // Tenta achar um ponto que não seja muito perto do player pra não dar spawn kill
+            int tentativa = Random.Range(0, pontosDeTeleporte.Length);
+            transform.position = pontosDeTeleporte[tentativa].position;
+        }
+
+        // Tempo "Rindo" invisível (diminui conforme ele fica mais bravo)
+        float tempoEspera = (vidaAtual < vidaTotal / 2) ? 0.8f : 1.5f;
+        yield return new WaitForSeconds(tempoEspera);
+
+        // Reaparece
         foreach(var r in visuais) r.enabled = true;
-        invulneravel = false;
-        StartCoroutine(CicloDeBatalha());
+        if(colisorBoss) colisorBoss.enabled = true;
+        podeMover = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Ataque") && podeMover)
         {
-            Rigidbody2D rbPlayer = other.GetComponent<Rigidbody2D>();
-            if (rbPlayer != null)
+            vidaAtual -= 1;
+            if (barraVida) barraVida.value = vidaAtual;
+
+            if (vidaAtual <= 0) Morrer();
+            else
             {
-                Vector2 direcaoEmpurrao = (other.transform.position - transform.position).normalized;
-                direcaoEmpurrao += Vector2.up * 0.5f; 
-                rbPlayer.linearVelocity = Vector2.zero;
-                rbPlayer.AddForce(direcaoEmpurrao * forcaEmpurrao, ForceMode2D.Impulse);
+                podeMover = false;
+                StartCoroutine(RotinaTeleporte());
             }
-        }
-        if (other.CompareTag("Ataque"))
-        {
-            TomarDano(1);
         }
     }
 
     void Morrer()
     {
-        // Abre a porta de sa�da
-        if (portaSaida != null) portaSaida.SetActive(false);
-        
-        // Esconde a barra de vida
-        if (barraVida) barraVida.gameObject.SetActive(false);
-        
+        if (portaSaida) portaSaida.SetActive(false);
         Destroy(gameObject);
     }
 }
