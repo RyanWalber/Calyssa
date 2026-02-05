@@ -624,6 +624,9 @@ namespace DragonBones
                     }
                     else
                     {
+                        if (this._meshFilter == null) return;
+              
+
                         this._meshFilter.sharedMesh = this._meshBuffer.sharedMesh;
                         this._meshRenderer.sharedMaterial = currentTextureAtlas;
                     }

@@ -61,16 +61,25 @@ public class Inimigo : MonoBehaviour
     public void ReceberDano(int dano = 1)
     {
         if (estaMorto) return;
+
         vida -= dano;
+        // Debug para você ver no console se tomou dano
+        Debug.Log("Inimigo tomou dano! Vida atual: " + vida);
+
         if (vida <= 0) Morrer();
     }
 
     void Morrer()
     {
+        if (estaMorto) return; // Garante que não morre duas vezes
+
         estaMorto = true;
-        GetComponent<Collider2D>().enabled = false;
+
+        // Desativa colisão para não machucar mais o player
+        if (GetComponent<Collider2D>()) GetComponent<Collider2D>().enabled = false;
         if (GetComponent<Rigidbody2D>()) GetComponent<Rigidbody2D>().simulated = false;
 
+        // Troca visual vivo pelo morto
         if (visualVivo != null) visualVivo.gameObject.SetActive(false);
         if (visualMorto != null)
         {
@@ -81,15 +90,31 @@ public class Inimigo : MonoBehaviour
             }
         }
 
+        // Destrói o objeto após 1 segundo (tempo da animação)
         Destroy(gameObject, 1.0f);
     }
 
+    // Colisão Física (Player encostando no inimigo)
     void OnCollisionEnter2D(Collision2D colisao)
     {
         if (estaMorto) return;
         if (colisao.gameObject.CompareTag("Player"))
         {
             colisao.gameObject.SendMessage("Machucar", danoNoPlayer, SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
+    // --- PARTE NOVA ---
+    // Colisão de Gatilho (Ataque/Luz encostando no inimigo)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (estaMorto) return;
+
+        // Verifica se foi o Ataque que encostou
+        // LEMBRE-SE: A Tag do objeto da luz tem que ser "Ataque" (sem aspas)
+        if (other.CompareTag("Ataque"))
+        {
+            ReceberDano(1);
         }
     }
 }
