@@ -1,13 +1,13 @@
 using UnityEngine;
-using DragonBones; 
-using Transform = UnityEngine.Transform; 
+using DragonBones;
+using Transform = UnityEngine.Transform;
 
 public class Player : MonoBehaviour
 {
     [Header("Configurações de Movimento")]
     public float velocidade = 5f;
     public float forcaPulo = 12f;
-    public int pulosExtrasMax = 1; 
+    public int pulosExtrasMax = 1;
 
     [Header("Objetos de Animação (Arraste da Hierarchy)")]
     public GameObject objetoOcioso;
@@ -20,19 +20,28 @@ public class Player : MonoBehaviour
     public float raioVerificacao = 0.2f;
     public LayerMask camadaChao;
 
+    [Header("Sons de Combate")] // --- NOVO ---
+    public AudioClip somAtaqueLanterna;
+    private AudioSource audioSource;
+
     private Rigidbody2D rb;
     private float inputH;
     private bool estaNoChao;
     private bool estaAtacando;
-    private float tempoAtaque = 0.5f; 
+    private float tempoAtaque = 0.5f;
     private float cronometroAtaque;
-    
-    private int pulosRestantes; 
+
+    private int pulosRestantes;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        pulosRestantes = pulosExtrasMax; 
+
+        // --- NOVO: Pega o componente de áudio ---
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+
+        pulosRestantes = pulosExtrasMax;
     }
 
     void Update()
@@ -62,11 +71,12 @@ public class Player : MonoBehaviour
                 }
                 else if (pulosRestantes > 0)
                 {
-                    pulosRestantes--; 
+                    pulosRestantes--;
                     Pular();
                 }
             }
 
+            // Aqui é o botão de ataque (Tecla X)
             if (Input.GetKeyDown(KeyCode.X))
             {
                 Atacar();
@@ -84,7 +94,7 @@ public class Player : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, forcaPulo);
 
         SetAnimacaoAtiva(objetoPular);
-        
+
         UnityArmatureComponent armature = objetoPular.GetComponent<UnityArmatureComponent>();
         if (armature != null && armature.animation.animationNames.Count > 0)
         {
@@ -104,6 +114,12 @@ public class Player : MonoBehaviour
     {
         estaAtacando = true;
         cronometroAtaque = tempoAtaque;
+
+        // --- NOVO: Toca o som do ataque ---
+        if (somAtaqueLanterna != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(somAtaqueLanterna);
+        }
 
         SetAnimacaoAtiva(objetoAtacar);
         UnityArmatureComponent armature = objetoAtacar.GetComponent<UnityArmatureComponent>();

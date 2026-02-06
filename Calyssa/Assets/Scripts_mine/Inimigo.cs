@@ -16,6 +16,19 @@ public class Inimigo : MonoBehaviour
     public float velocidade = 2f;
     public float distanciaPatrulha = 5f;
 
+    [Header("SONS (Com Volume)")] // --- ATUALIZADO ---
+    public AudioClip somMorte;
+    [Range(0f, 1f)] public float volumeMorte = 1f; // Barrinha de volume (0 a 1)
+
+    public AudioClip somAlerta;
+    [Range(0f, 1f)] public float volumeAlerta = 1f; // Barrinha de volume (0 a 1)
+
+    public float distanciaParaSom = 60f; // Ajustado para 60 base na nossa conversa anterior
+
+    private AudioSource audioSource;
+    private Transform playerTransform;
+    private bool jaAlertou = false;
+
     private Vector3 posicaoInicial;
     private bool indoParaDireita = true;
     private bool estaMorto = false;
@@ -24,16 +37,20 @@ public class Inimigo : MonoBehaviour
     {
         posicaoInicial = transform.position;
 
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+
+        // Tenta achar o player logo no começo
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null) playerTransform = playerObj.transform;
+
         if (visualVivo != null)
         {
             visualVivo.gameObject.SetActive(true);
-
             if (visualVivo.animation.animationNames.Count > 0)
             {
-                string anim = visualVivo.animation.animationNames[0];
-                visualVivo.animation.Play(anim, 0);
+                visualVivo.animation.Play(visualVivo.animation.animationNames[0], 0);
             }
-
         }
 
         if (visualMorto != null) visualMorto.gameObject.SetActive(false);
@@ -42,6 +59,8 @@ public class Inimigo : MonoBehaviour
     void Update()
     {
         if (estaMorto) return;
+
+        VerificarProximidadePlayer();
 
         float limiteDireita = posicaoInicial.x + distanciaPatrulha;
         float limiteEsquerda = posicaoInicial.x;
@@ -58,28 +77,52 @@ public class Inimigo : MonoBehaviour
         }
     }
 
+    void VerificarProximidadePlayer()
+    {
+        // Se não achou no Start, tenta achar agora
+        if (playerTransform == null)
+        {
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) playerTransform = p.transform;
+        }
+
+        if (playerTransform == null) return;
+
+        if (somAlerta == null || jaAlertou) return;
+
+        float distancia = Vector2.Distance(transform.position, playerTransform.position);
+
+        if (distancia < distanciaParaSom)
+        {
+            // --- ATUALIZADO: Toca com o volume escolhido ---
+            audioSource.PlayOneShot(somAlerta, volumeAlerta);
+            jaAlertou = true;
+        }
+    }
+
     public void ReceberDano(int dano = 1)
     {
         if (estaMorto) return;
 
         vida -= dano;
-        // Debug para você ver no console se tomou dano
-        Debug.Log("Inimigo tomou dano! Vida atual: " + vida);
-
         if (vida <= 0) Morrer();
     }
 
     void Morrer()
     {
-        if (estaMorto) return; // Garante que não morre duas vezes
+        if (estaMorto) return;
 
         estaMorto = true;
 
-        // Desativa colisão para não machucar mais o player
+        if (audioSource != null && somMorte != null)
+        {
+            // --- ATUALIZADO: Toca com o volume escolhido ---
+            audioSource.PlayOneShot(somMorte, volumeMorte);
+        }
+
         if (GetComponent<Collider2D>()) GetComponent<Collider2D>().enabled = false;
         if (GetComponent<Rigidbody2D>()) GetComponent<Rigidbody2D>().simulated = false;
 
-        // Troca visual vivo pelo morto
         if (visualVivo != null) visualVivo.gameObject.SetActive(false);
         if (visualMorto != null)
         {
@@ -90,11 +133,9 @@ public class Inimigo : MonoBehaviour
             }
         }
 
-        // Destrói o objeto após 1 segundo (tempo da animação)
         Destroy(gameObject, 1.0f);
     }
 
-    // Colisão Física (Player encostando no inimigo)
     void OnCollisionEnter2D(Collision2D colisao)
     {
         if (estaMorto) return;
@@ -104,14 +145,9 @@ public class Inimigo : MonoBehaviour
         }
     }
 
-    // --- PARTE NOVA ---
-    // Colisão de Gatilho (Ataque/Luz encostando no inimigo)
     void OnTriggerEnter2D(Collider2D other)
     {
         if (estaMorto) return;
-
-        // Verifica se foi o Ataque que encostou
-        // LEMBRE-SE: A Tag do objeto da luz tem que ser "Ataque" (sem aspas)
         if (other.CompareTag("Ataque"))
         {
             ReceberDano(1);

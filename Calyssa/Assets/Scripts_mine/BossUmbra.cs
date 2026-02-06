@@ -11,7 +11,7 @@ public class BossUmbra : MonoBehaviour
 
     [Header("AJUSTE VISUAL")]
     [Tooltip("Marque isso se o desenho original do seu boss olha para a Esquerda")]
-    public bool spriteOriginalOlhaEsquerda = true; 
+    public bool spriteOriginalOlhaEsquerda = true;
 
     [Header("VIDA & UI")]
     public int vidaTotal = 20;
@@ -21,23 +21,29 @@ public class BossUmbra : MonoBehaviour
 
     [Header("COMBATE")]
     public int danoNoPlayer = 1;
-    public float forcaEmpurrao = 30f; 
-    
+    public float forcaEmpurrao = 30f;
+
     [Header("VELOCIDADE (MODO FÚRIA)")]
-    public float velocidadeInicial = 10f; // Velocidade quando está calmo
-    public float velocidadeFinal = 22f;   // Velocidade quando está quase morrendo
-    
+    public float velocidadeInicial = 10f;
+    public float velocidadeFinal = 22f;
+
     // VARIÁVEIS INTERNAS
     private float velocidadeAtual;
-    private bool podeMover = false; 
+    private bool podeMover = false;
     private bool lutaComecou = false;
-    
+
     private SpriteRenderer[] visuais;
     private Collider2D colisorBoss;
     private Rigidbody2D rbBoss;
 
+    // --- MUDANÇA 1: Variável para guardar o tamanho que você colocou no Inspector ---
+    private Vector3 escalaOriginal;
+
     void Start()
     {
+        // --- MUDANÇA 1: Salva o tamanho atual (ex: 2, 2, 2) antes de começar ---
+        escalaOriginal = transform.localScale;
+
         vidaAtual = vidaTotal;
         velocidadeAtual = velocidadeInicial;
 
@@ -46,12 +52,12 @@ public class BossUmbra : MonoBehaviour
         rbBoss = GetComponent<Rigidbody2D>();
 
         if (player == null) player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        
-        if (barraVida) 
+
+        if (barraVida)
         {
             barraVida.maxValue = vidaTotal;
             barraVida.value = vidaAtual;
-            barraVida.gameObject.SetActive(false); 
+            barraVida.gameObject.SetActive(false);
         }
 
         if (rbBoss) rbBoss.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -74,38 +80,31 @@ public class BossUmbra : MonoBehaviour
     {
         if (!lutaComecou || !podeMover || player == null) return;
 
-        // 1. CALCULA VELOCIDADE BASEADA NA VIDA (QUANTO MENOS VIDA, MAIS RÁPIDO)
         float porcentagemVida = (float)vidaAtual / (float)vidaTotal;
-        // Lerp faz a transição suave entre a velocidade máxima e mínima
         velocidadeAtual = Mathf.Lerp(velocidadeFinal, velocidadeInicial, porcentagemVida);
 
-        // 2. MOVIMENTO
         transform.position = Vector3.MoveTowards(transform.position, player.position, velocidadeAtual * Time.deltaTime);
 
-        // 3. ROTAÇÃO (CORRIGIDA)
         OlharParaPlayer();
     }
 
     void OlharParaPlayer()
     {
-        // Se o player está à direita (x maior que boss)
         bool playerEstaNaDireita = player.position.x > transform.position.x;
-
-        // Lógica para inverter corretamente dependendo de como o desenho foi feito
-        float escalaX = 1;
+        float direcaoX = 1;
 
         if (playerEstaNaDireita)
         {
-            // Se o player ta na direita, e o sprite olha pra esquerda, temos que inverter (-1)
-            escalaX = spriteOriginalOlhaEsquerda ? -1 : 1;
+            direcaoX = spriteOriginalOlhaEsquerda ? -1 : 1;
         }
         else
         {
-            // Se o player ta na esquerda
-            escalaX = spriteOriginalOlhaEsquerda ? 1 : -1;
+            direcaoX = spriteOriginalOlhaEsquerda ? 1 : -1;
         }
 
-        transform.localScale = new Vector3(escalaX, 1, 1);
+        // --- MUDANÇA 1: Usa a escalaOriginal.x (absoluta) multiplicada pela direção ---
+        // Isso mantêm o tamanho 2 (ou o que você definiu) e só muda o lado.
+        transform.localScale = new Vector3(direcaoX * Mathf.Abs(escalaOriginal.x), escalaOriginal.y, escalaOriginal.z);
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -114,8 +113,8 @@ public class BossUmbra : MonoBehaviour
 
         if (col.gameObject.CompareTag("Player"))
         {
-            podeMover = false; 
-            if(rbBoss) rbBoss.linearVelocity = Vector2.zero; // Unity 6
+            podeMover = false;
+            if (rbBoss) rbBoss.linearVelocity = Vector2.zero;
 
             AplicarEfeitoNoPlayer(col.gameObject);
             StartCoroutine(RotinaTeleporte());
@@ -132,11 +131,11 @@ public class BossUmbra : MonoBehaviour
         if (rbPlayer)
         {
             if (scriptPlayer) scriptPlayer.enabled = false;
-            rbPlayer.linearVelocity = Vector2.zero; 
-            
+            rbPlayer.linearVelocity = Vector2.zero;
+
             Vector2 direcao = (p.transform.position - transform.position).normalized;
-            direcao += Vector2.up * 0.5f; 
-            
+            direcao += Vector2.up * 0.5f;
+
             rbPlayer.AddForce(direcao * forcaEmpurrao, ForceMode2D.Impulse);
             StartCoroutine(DestravarPlayer(scriptPlayer));
         }
@@ -151,24 +150,23 @@ public class BossUmbra : MonoBehaviour
     IEnumerator RotinaTeleporte()
     {
         // Some
-        if(colisorBoss) colisorBoss.enabled = false;
-        foreach(var r in visuais) r.enabled = false;
+        if (colisorBoss) colisorBoss.enabled = false;
+        foreach (var r in visuais) r.enabled = false;
 
-        // Muda de Lugar (GIZMOS)
+        // Muda de Lugar
         if (pontosDeTeleporte.Length > 0)
         {
-            // Tenta achar um ponto que não seja muito perto do player pra não dar spawn kill
             int tentativa = Random.Range(0, pontosDeTeleporte.Length);
             transform.position = pontosDeTeleporte[tentativa].position;
         }
 
-        // Tempo "Rindo" invisível (diminui conforme ele fica mais bravo)
-        float tempoEspera = (vidaAtual < vidaTotal / 2) ? 0.8f : 1.5f;
-        yield return new WaitForSeconds(tempoEspera);
+        // --- MUDANÇA 2: Teleporte Super Rápido ---
+        // Removi a espera de 1.5s. Agora é 0.1s só para piscar.
+        yield return new WaitForSeconds(0.1f);
 
-        // Reaparece
-        foreach(var r in visuais) r.enabled = true;
-        if(colisorBoss) colisorBoss.enabled = true;
+        // Reaparece Já
+        foreach (var r in visuais) r.enabled = true;
+        if (colisorBoss) colisorBoss.enabled = true;
         podeMover = true;
     }
 
