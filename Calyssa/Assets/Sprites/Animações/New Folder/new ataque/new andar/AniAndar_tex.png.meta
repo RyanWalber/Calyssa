@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: d3988239a3052524384d8418127df1a8
+guid: 7e6326e9bc3394d499404f15a5036c5d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6427575062395291152
-    second: puloa_tex_0
+      213: 2194278690220531628
+    second: AniAndar_tex_0
   - first:
-      213: 1880699786292708079
-    second: puloa_tex_1
+      213: -7245651970459679488
+    second: AniAndar_tex_1
   - first:
-      213: -1990654712852766176
-    second: puloa_tex_2
+      213: 3723264084471309449
+    second: AniAndar_tex_2
   - first:
-      213: -7355943214240196880
-    second: puloa_tex_3
+      213: -4181199153457640407
+    second: AniAndar_tex_3
   - first:
-      213: 6660471604548148424
-    second: puloa_tex_4
+      213: 4140484190995253498
+    second: AniAndar_tex_4
   - first:
-      213: 162620784952796567
-    second: puloa_tex_5
+      213: -6394792432938621162
+    second: AniAndar_tex_5
   - first:
-      213: 1613121997941114268
-    second: puloa_tex_6
+      213: 3644406651679369798
+    second: AniAndar_tex_6
   - first:
-      213: 4148263942870070657
-    second: puloa_tex_7
+      213: 8752534398712998990
+    second: AniAndar_tex_7
   - first:
-      213: -8839366385784036885
-    second: puloa_tex_8
+      213: 9023616021698188101
+    second: AniAndar_tex_8
   - first:
-      213: 4937934003456156943
-    second: puloa_tex_9
+      213: -9026125755222672901
+    second: AniAndar_tex_9
   - first:
-      213: 8071590338266724597
-    second: puloa_tex_10
+      213: -2171992224146299170
+    second: AniAndar_tex_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -156,7 +156,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: puloa_tex_0
+      name: AniAndar_tex_0
       rect:
         serializedVersion: 2
         x: 0
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0160b39e675533950800000000000000
-      internalID: 6427575062395291152
+      spriteID: cafddccc7d4a37e10800000000000000
+      internalID: 2194278690220531628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_1
+      name: AniAndar_tex_1
       rect:
         serializedVersion: 2
         x: 916
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe24123cd76991a10800000000000000
-      internalID: 1880699786292708079
+      spriteID: 00544a60ce5427b90800000000000000
+      internalID: -7245651970459679488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_2
+      name: AniAndar_tex_2
       rect:
         serializedVersion: 2
         x: 0
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02224f9e516cf54e0800000000000000
-      internalID: -1990654712852766176
+      spriteID: 984e1e745f0bba330800000000000000
+      internalID: 3723264084471309449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_3
+      name: AniAndar_tex_3
       rect:
         serializedVersion: 2
         x: 472
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f6944fbe907ae990800000000000000
-      internalID: -7355943214240196880
+      spriteID: 92c4efad58569f5c0800000000000000
+      internalID: -4181199153457640407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_4
+      name: AniAndar_tex_4
       rect:
         serializedVersion: 2
         x: 800
@@ -259,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cc1ba9b2afbe6c50800000000000000
-      internalID: 6660471604548148424
+      spriteID: af8846a3f64f57930800000000000000
+      internalID: 4140484190995253498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_5
+      name: AniAndar_tex_5
       rect:
         serializedVersion: 2
         x: 800
@@ -281,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 795e4380ebeb14200800000000000000
-      internalID: 162620784952796567
+      spriteID: 617665ec9222147a0800000000000000
+      internalID: -6394792432938621162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_6
+      name: AniAndar_tex_6
       rect:
         serializedVersion: 2
         x: 998
@@ -303,14 +303,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9506a219e5f26610800000000000000
-      internalID: 1613121997941114268
+      spriteID: 64a6b627a88839230800000000000000
+      internalID: 3644406651679369798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_7
+      name: AniAndar_tex_7
       rect:
         serializedVersion: 2
         x: 0
@@ -325,14 +325,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 185f45dd318919930800000000000000
-      internalID: 4148263942870070657
+      spriteID: e4ceca7a9af377970800000000000000
+      internalID: 8752534398712998990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_8
+      name: AniAndar_tex_8
       rect:
         serializedVersion: 2
         x: 0
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be160d7ea13445580800000000000000
-      internalID: -8839366385784036885
+      spriteID: 54318da66f25a3d70800000000000000
+      internalID: 9023616021698188101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_9
+      name: AniAndar_tex_9
       rect:
         serializedVersion: 2
         x: 88
@@ -369,14 +369,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f05a35850d0178440800000000000000
-      internalID: 4937934003456156943
+      spriteID: bf9b2f5b272ccb280800000000000000
+      internalID: -9026125755222672901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: puloa_tex_10
+      name: AniAndar_tex_10
       rect:
         serializedVersion: 2
         x: 328
@@ -391,8 +391,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f8fcd4c5ac040070800000000000000
-      internalID: 8071590338266724597
+      spriteID: ed669d074988bd1e0800000000000000
+      internalID: -2171992224146299170
       vertices: []
       indices: 
       edges: []
@@ -410,18 +410,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      puloa_tex_0: 6427575062395291152
-      puloa_tex_1: 1880699786292708079
-      puloa_tex_10: 8071590338266724597
-      puloa_tex_2: -1990654712852766176
-      puloa_tex_3: -7355943214240196880
-      puloa_tex_4: 6660471604548148424
-      puloa_tex_5: 162620784952796567
-      puloa_tex_6: 1613121997941114268
-      puloa_tex_7: 4148263942870070657
-      puloa_tex_8: -8839366385784036885
-      puloa_tex_9: 4937934003456156943
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

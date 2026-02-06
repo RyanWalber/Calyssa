@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      atacka_tex_0: -7688187182221508265
+      atacka_tex_1: 6995070389138318280
+      atacka_tex_10: -2306319240979043874
+      atacka_tex_11: -908743990833413282
+      atacka_tex_2: 4657087260621376106
+      atacka_tex_3: -7539890482849411922
+      atacka_tex_4: 1442801731117705775
+      atacka_tex_5: 2623827301025490108
+      atacka_tex_6: -5274837144210105139
+      atacka_tex_7: -2180969812256629946
+      atacka_tex_8: -2968220623828626633
+      atacka_tex_9: -2124255681440381915
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
