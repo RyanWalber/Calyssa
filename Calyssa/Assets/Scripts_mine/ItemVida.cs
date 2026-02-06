@@ -2,55 +2,52 @@ using UnityEngine;
 
 public class ItemVida : MonoBehaviour
 {
-    [Header("CONFIGURAÇÕES")]
+    [Header("CONFIGURAÇÃO")]
     public int valorCura = 1;
     public GameObject efeitoParticula;
 
     [Header("AUDIO")]
-    public AudioClip somColetar;
-    [Range(0f, 1f)] public float volume = 1f;
+    public AudioClip somColetar; // <--- TEM QUE TER O ARQUIVO AQUI
+    [Range(0f, 1f)] public float volume = 1f; // <--- CONFIRA SE ISSO NÃO ESTÁ NO ZERO
 
-    private AudioSource audioSource;
-    private bool jaColetou = false;
-
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    
-        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
-    }
+    private bool jaPegou = false;
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (jaPegou) return;
 
-        if (other.CompareTag("Player") && !jaColetou)
+        // Procura o script de vida
+        VidaPlayer scriptVida = other.GetComponentInParent<VidaPlayer>();
+
+        if (scriptVida == null && other.CompareTag("Player"))
         {
-            jaColetou = true;
+            scriptVida = FindObjectOfType<VidaPlayer>();
+        }
 
- 
-            other.SendMessage("Curar", valorCura, SendMessageOptions.DontRequireReceiver);
+        if (scriptVida != null)
+        {
+            jaPegou = true;
+            scriptVida.GanharVida(valorCura);
 
-            
+            // --- A CORREÇÃO DO SOM ESTÁ AQUI ---
+            if (somColetar != null)
+            {
+                // Truque: Toca o som EXATAMENTE onde a câmera está.
+                // Isso impede que o som fique "baixo" ou "longe" no mundo 3D.
+                Vector3 posicaoDoOuvido = Camera.main.transform.position;
+                AudioSource.PlayClipAtPoint(somColetar, posicaoDoOuvido, volume);
+            }
+            else
+            {
+                Debug.LogError("ERRO: Você esqueceu de arrastar o som para o Inspector do ItemVida!");
+            }
+
             if (efeitoParticula != null)
             {
                 Instantiate(efeitoParticula, transform.position, Quaternion.identity);
             }
 
-            if (somColetar != null)
-            {
-                audioSource.PlayOneShot(somColetar, volume);
-            }
-            else if (audioSource.clip != null)
-            {
-
-                audioSource.PlayOneShot(audioSource.clip, volume);
-            }
-
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<Collider2D>().enabled = false;
-
-
-            Destroy(gameObject, 1.0f);
+            Destroy(gameObject);
         }
     }
 }
